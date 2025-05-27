@@ -1,5 +1,5 @@
 class VaccineError (Exception):
-    def __init__(self, message="VaccineError"):
+    def __init__(self, message : str = "VaccineError") -> None:
         super().__init__(message)
 
 
