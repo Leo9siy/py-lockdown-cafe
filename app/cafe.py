@@ -17,26 +17,9 @@ class Cafe:
         vaccine = visitor["vaccine"]
 
         if vaccine["expiration_date"] < datetime.date.today():
-            raise OutdatedVaccineError
+            raise OutdatedVaccineError("Visitor's vaccine is outdated")
 
         if not visitor["wearing_a_mask"]:
-            raise NotWearingMaskError
+            raise NotWearingMaskError("Visitor is not wearing a mask.")
 
         return f"Welcome to {self.name}"
-
-
-def go_to_cafe(cafe: Cafe, friends: list) -> str:
-    masks_to_buy = 0
-
-    for friend in friends:
-        try:
-            cafe.visit_cafe(friend)
-        except (NotVaccinatedError, OutdatedVaccineError):
-            return "All friends should be vaccinated"
-        except NotWearingMaskError:
-            masks_to_buy += 1
-
-    if masks_to_buy >= 1:
-        return f"Friends should buy {masks_to_buy} masks"
-
-    return f"Friends can go to {cafe.name}"

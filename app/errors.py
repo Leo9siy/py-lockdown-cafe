@@ -1,6 +1,6 @@
 class VaccineError (Exception):
-    def __str__(self) -> str:
-        return "Vaccine Error"
+    def __init__(self, message="VaccineError"):
+        super().__init__(message)
 
 
 class NotVaccinatedError(VaccineError):
