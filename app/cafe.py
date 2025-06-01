@@ -12,7 +12,7 @@ class Cafe:
 
     def visit_cafe(self, visitor: dict) -> str:
         if "vaccine" not in visitor:
-            raise NotVaccinatedError('Visitor is not vaccinated.')
+            raise NotVaccinatedError("Visitor is not vaccinated.")
 
         vaccine = visitor["vaccine"]
 
